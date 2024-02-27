@@ -14,7 +14,6 @@ class UsersServices {
       );
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
-        print(data);
         return data;
       } else {
         var data = jsonDecode(response.body);
