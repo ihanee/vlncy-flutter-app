@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   var filteredMatches = [];
   Map<String, dynamic> mainUser = {};
+  bool isLoading = false;
 
   CalculateDistanceService calculateDistanceService =
       CalculateDistanceService();
@@ -125,6 +126,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future getUsers() async {
+    setState(() {
+      isLoading = true;
+    });
+
     final results = await usersServices.getUsers();
     if (results != null) {
       users = results.cast<Map<String, dynamic>>(); // Explicit casting
@@ -132,7 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
       mainUser = users.first;
       getFilteredData();
     }
-    setState(() {});
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
@@ -144,6 +151,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (isLoading) {
+      return Center(
+        child: Text(
+          "Loading, please wait...",
+          style: TextStyle(
+              color: fontcolor, fontSize: getProportionateScreenWidth(16)),
+        ),
+      );
+    }
     return Scaffold(
       body: SafeArea(
         child: Container(
