@@ -19,13 +19,25 @@ Before you begin, ensure you have met the following requirements:
 Follow these steps to get your development environment set up:
 
 1. Clone the repository:
-   https://github.com/ihanee/vlncy-flutter-app
+
+   ```bash
+   https://github.com/ihanee/vlncy-flutter-app.git
+
+   ```
 
 2. Navigate into the project directory:
+
+   ```bash
    cd vlncy-flutter-app
 
+   ```
+
 3. Fetch dependencies:
+
+   ```bash
    flutter pub get
+
+   ```
 
 ### Running the App
 
@@ -33,7 +45,12 @@ Follow these steps to run the Flutter application:
 
 1. Ensure you have a device connected or an emulator running.
 
-2. Run the app: flutter run
+2. Run the app:
+
+   ```bash
+   flutter run
+
+   ```
 
 This command will compile the Flutter app and deploy it to your connected device or emulator.
 
